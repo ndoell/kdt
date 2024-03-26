@@ -5,7 +5,8 @@ RUN go install github.com/kondukto-io/kdt@latest
 FROM alpine as tools-build
 # Download snyk binary
 RUN  apk --no-cache add curl
-RUN curl --compressed https://static.snyk.io/cli/latest/snyk-alpine -o snyk \
+#RUN curl --compressed https://static.snyk.io/cli/latest/snyk-alpine -o snyk \
+RUN curl --compressed https://github.com/snyk/cli/releases/download/v1.1286.1/snyk-alpine -o snyk \
     && chmod +x ./snyk \
     && mv ./snyk /usr/local/bin/
 # Download trivy binary
